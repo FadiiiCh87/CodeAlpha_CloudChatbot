@@ -1,39 +1,15 @@
-# Retrieval-Based Website Chatbot
+# Multilingual FAQ Chatbot — CodeAlpha
 
-CodeAlpha Cloud Computing Internship project.
+## Features
+- Cloud-hosted Flask chatbot with keyword and approximate string retrieval.
+- English, Roman Urdu and Arabic sample keywords, suggested topic buttons, confidence score, safe fallback.
+- Curated FAQ responses with no fabricated contact email. JSON API and responsive website.
 
-Flask FAQ chatbot with predefined intent patterns, browser chat interface, JSON API and fallback responses.
+## API
+GET /health; GET /api/topics; POST /api/chat JSON: {"message":"What is pricing?"}.
 
-## Local setup
+## Run and test
+`pip install -r requirements.txt`; `gunicorn app:app`; `python -m pytest -q`. GitHub Actions tests pushes and pull requests.
 
-```bash
-python -m venv .venv
-# Activate the virtual environment
-pip install -r requirements.txt
-python app.py
-```
-
-Open http://127.0.0.1:5000.
-
-## Tests
-
-```bash
-python -m pytest -q
-```
-
-## Configuration
-
-No API key required.
-
-## Files
-
-- `app.py`: Flask backend
-- `templates/index.html`: frontend
-- `static/style.css`: UI
-- `tests/test_app.py`: tests
-- `requirements.txt`: dependencies
-- `Procfile`: Gunicorn startup
-
-## Scope
-
-Educational prototype. Deployment and production security review have not been completed.
+## Limitations
+This is **not an LLM or document-based RAG chatbot**. It is an explainable, low-cost FAQ retrieval prototype. Responses and multilingual keywords are illustrative; configure verified business content before use. Production deployment should add distributed rate limiting and monitoring.
